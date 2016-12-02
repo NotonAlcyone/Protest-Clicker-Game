@@ -20,6 +20,7 @@ public class UpgradeSystem : MonoBehaviour {
     {
         LevelDisplay.text = "Current_level: " + UpgradeLevel;
     }
+    
     public void UpgradeClick()
     {
         if (Chicken.CurrentChickenStat >= UpgradePrice)

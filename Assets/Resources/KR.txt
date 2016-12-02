@@ -1,0 +1,16 @@
+﻿{
+	"UI": 
+	{
+		"ChickenStat": "주운 치킨: ",
+		"ChickenStack" : "치킨: ",
+		"PopStat": "인지도: ",
+		"Upgrade": "레벨:"
+    },
+	"Force":{
+		"Pew":"MerTong",
+		"SO" :"Haya"
+	},
+	"name":"Dr Charles",
+	"lives":3,
+	"health":0.8
+}

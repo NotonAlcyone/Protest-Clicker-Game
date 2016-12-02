@@ -1,0 +1,19 @@
+{
+    "NewsFeed": 
+    [
+        "Warn you",
+        "Kill you",
+        "Protect you",
+        "Love you",
+        "Wish me"
+    ],
+    "UI": 
+    {
+        "ChickenStat": "Chicken: ",
+        "PopStat": "Popularity: ",
+    },
+    "Use":
+    {
+        "Popcorn":"NotonIsAwesome",
+    }
+}
