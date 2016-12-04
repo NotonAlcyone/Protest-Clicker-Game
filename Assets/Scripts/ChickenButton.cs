@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChickenButton : MonoBehaviour {
+public class ChickenButton : MonoBehaviour
+{
 
     public ChickenSystem Chicken;
 
