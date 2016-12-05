@@ -5,41 +5,41 @@ using System.IO;
 [System.Serializable]
 
 
-public class ChickenSystem : MonoBehaviour {
+public class ChickenSystem : MonoBehaviour
+{
 
-    public JSON json;
+    public PopSystem Pop;
 
-    public UnityEngine.UI.Text ChickenStackDisplay;
-    public UnityEngine.UI.Text ChickenStatDisplay;
+    public UnityEngine.UI.Text StackDisplay;
+    public UnityEngine.UI.Text StatDisplay;
 
-    public int ChickenStack;
-    public int IncreaseChickenStack;
+    public int Stack;
+    public int IncreaseStack;
     public int MaxChickenStack;
     public int MinChickenStack;
 
-    public int CurrentChickenStat;
+    public int CurrentStat;
 
-   
+
     // 시작시 호출
-    void Start ()
+    void Start()
     {
-        Debug.Log(JsonLoad.File.UI.ChickenStat);
-        InvokeRepeating("ChickenIncrease",1.0f,1.0f); //시작후 1초후부터 매 1 초마다 ChickenIncrease 호출       
-    }	
-
-    void ChickenIncrease ()
-    {
-      if (ChickenStack < MaxChickenStack)
-        {
-            ChickenStack += IncreaseChickenStack; //스택된 치킨이 최대치보다 적을경우 스택에 증가량을 더함 
-        }     
+        InvokeRepeating("ChickenIncrease", 1.0f, 1.0f); //시작후 1초후부터 매 1 초마다 ChickenIncrease 호출       
     }
-    
+
+    void ChickenIncrease()
+    {
+        if (Stack < MaxChickenStack)
+        {
+           Stack += (Pop.PopStat) / 10;
+        }
+    }
+
     // 프레임마다 호출
-    void Update ()
-    {        
-        ChickenStackDisplay.text = JsonLoad.File.UI.ChickenStack + ChickenStack;
-        ChickenStatDisplay.text ="치킨 내놔" + CurrentChickenStat;
-        ChickenStack = Mathf.Clamp(ChickenStack, MinChickenStack, MaxChickenStack); //치킨"스택"의 최소와 최대치를 정의
-    }   
+    void Update()
+    {
+        StackDisplay.text = JsonLoad.File.UI.ChickenStack + Stack;
+        StatDisplay.text = JsonLoad.File.UI.ChickenStat + CurrentStat;
+        Stack = Mathf.Clamp(Stack, MinChickenStack, MaxChickenStack); //치킨"스택"의 최소와 최대치를 정의
+    }
 }

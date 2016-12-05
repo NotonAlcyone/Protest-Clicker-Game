@@ -1,43 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 public class NewsFeedSystem : MonoBehaviour
 {
+    public NewsFeed News;
+    public bool PeaceStat = true;
 
     public UnityEngine.UI.Text NewsFeedFirst;
-
-    public string Noton;
-
 
     public string Feed = "";
     public string HAKU = "        ";
     void Start()
     {
-
         NewsFeedFirst.fontSize = 30;
-
-        InvokeRepeating("FeedMaker", 0.0f, 1.0f);
-
+        InvokeRepeating("FeedMaker", 0.0f, 1.5f);
     }
     void FeedMaker()
     {
         Feed = Feed.Insert(Feed.Length, HAKU);
-        Feed = Feed.Insert((Feed.Length), JsonLoad.File.NewsFeed.Feed1);
+              
+        if (Random.Range(1, 100) > 70)
+        {
+            if (PeaceStat == true)
+            {
+                int tmp = Random.Range(0, News.PeaceMessage.Length );
+                Feed = Feed.Insert((Feed.Length), News.PeaceMessage[tmp]);
+            }
+            else
+            {
+                int tmp = Random.Range(0, News.ViolentMessage.Length - 1);
+                Feed = Feed.Insert((Feed.Length), News.ViolentMessage[tmp]);
+            }
+        }
+        else
+        {
+            int tmp = Random.Range(0, News.NormalMessage.Length - 1);
+            Feed = Feed.Insert((Feed.Length), News.NormalMessage[tmp]);
+        }
         NewsFeedFirst.text = Feed;
-        Debug.Log(Feed);
 
     }
-    void FeedDestroyer()
-    {
-
-        Feed = Feed.Remove(0, 16);
-        Debug.Log(Feed);
-    }
-
     void Update()
     {
-
     }
     /*
     public UnityEngine.UI.Text NewsFeedDisplay;

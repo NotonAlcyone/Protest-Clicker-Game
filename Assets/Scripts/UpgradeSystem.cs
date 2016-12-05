@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UpgradeSystem : MonoBehaviour {
+public class UpgradeSystem : MonoBehaviour
+{
 
 
     public ChickenSystem Chicken;
+    public NewsFeedSystem News;
     public UnityEngine.UI.Text LevelDisplay;
     public int UpgradeLevel;
     public int UpgradePrice;
@@ -14,19 +16,19 @@ public class UpgradeSystem : MonoBehaviour {
     {
         UpgradeLevel = 1; // default upgarde level is 1
         UpgradePrice = 1;
-
     }
     void Update()
     {
-        LevelDisplay.text = "Current_level: " + UpgradeLevel;
+        LevelDisplay.text = JsonLoad.File.UI.Upgrade + UpgradeLevel;
     }
-    
+
     public void UpgradeClick()
     {
-        if (Chicken.CurrentChickenStat >= UpgradePrice)
+        if (Chicken.CurrentStat >= UpgradePrice)
         {
-            Chicken.CurrentChickenStat -= UpgradePrice;
+            Chicken.CurrentStat -= UpgradePrice;
             UpgradeLevel++;
+            News.PeaceStat = false;
         }
 
     }

@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PopSystem : MonoBehaviour {
+public class PopSystem : MonoBehaviour
+{
 
     public UnityEngine.UI.Text PopStatDisplay;
     public int PopStat;
     public int PopStatIncrease;
 
-    void Start () {
+    void Start()
+    {
 
-        InvokeRepeating("PopStatIncrase", 1, 1); // 실행 1초후 1초마다 함수 호출
-	}
+        InvokeRepeating("PopStatUP", 1.0f, 1.0f); // 실행 1초후 1초마다 함수 호출
+    }
 
-    void PopStatIncrase()
+    void PopStatUP()
     {
         PopStat += PopStatIncrease;
     }
 
 
-	void Update () {
+    void Update()
+    {
 
-        PopStatDisplay.text = "인기도: " + PopStat;
-	}
+        PopStatDisplay.text = JsonLoad.File.UI.PopStat + PopStat;
+    }
 }

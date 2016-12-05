@@ -10,10 +10,10 @@ public class ChickenButton : MonoBehaviour
 
     public void ChickenMineClicked()
     {
-        if (Chicken.ChickenStack > Chicken.MinChickenStack)
+        if (Chicken.Stack > Chicken.MinChickenStack)
         {
-            Chicken.CurrentChickenStat += Chicken.ChickenStack;
-            Chicken.ChickenStack = Chicken.MinChickenStack;
+            Chicken.CurrentStat += Chicken.Stack;
+            Chicken.Stack = Chicken.MinChickenStack;
         }
     }
 }

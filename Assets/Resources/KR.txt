@@ -6,11 +6,13 @@
 		"PopStat": "인지도: ",
 		"Upgrade": "레벨:"
     },
-	"Force":{
-		"Pew":"MerTong",
-		"SO" :"Haya"
+	"NewsFeed":
+	{
+		"MainFeed":"",
+		"Feed1" :"머텅령 하야하라"
 	},
-	"name":"Dr Charles",
-	"lives":3,
-	"health":0.8
+	"Achievement":
+	{	
+		"ChickenEVERYWHERE":"하늘에서 치킨이 빗발친다."		
+	}
 }
