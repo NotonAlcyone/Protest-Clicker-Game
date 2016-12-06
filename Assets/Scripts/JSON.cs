@@ -2,24 +2,44 @@
 using System.Collections;
 
 [System.Serializable]
-public class Feedable
+public class UI
 {
     public string ChickenStat;
     public string ChickenStack;
     public string PopStat;
     public string Upgrade;
+}
+[System.Serializable]
+public class NewsFeedScript
+{
     public string MainFeed;
     public string Feed1;
-    public string ChickenEVERYWHERE;
-
 }
+[System.Serializable]
+public class Achievement
+{
+    public string ChickenEVERYWHERE;
+}
+[System.Serializable]
+public class Encounter
+{
+    public string Stage;
+}
+[System.Serializable]
+public class EncounterDescription
+{
+    public string StageDescription;
+}
+
+
 [System.Serializable]
 public class ObjectLoad
 {
-    public Feedable UI;
-    public Feedable NewsFeed;
-    public Feedable Achievement;
-    public string name;
+    public UI UI;
+    public NewsFeedScript NewsFeed;
+    public Achievement Achievement;
+    public Encounter Encounter;
+    public EncounterDescription EncounterDescription;
 
     static TextAsset Feed = Resources.Load<TextAsset>("KR");
     static public string Pro = Feed.text;

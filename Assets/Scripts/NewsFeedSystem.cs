@@ -5,6 +5,7 @@ public class NewsFeedSystem : MonoBehaviour
 {
     public NewsFeed News;
     public bool PeaceStat = true;
+    public string Mention = "";
 
     public UnityEngine.UI.Text NewsFeedFirst;
 
@@ -23,23 +24,25 @@ public class NewsFeedSystem : MonoBehaviour
         {
             if (PeaceStat == true)
             {
-                int tmp = Random.Range(0, News.PeaceMessage.Length );
-                Feed = Feed.Insert((Feed.Length), News.PeaceMessage[tmp]);
+                int tmpPeace = Random.Range(0, News.PeaceMessage.Length );
+                string Replace = News.PeaceMessage[tmpPeace].Replace("$Mention", Mention);
+                Feed = Feed.Insert((Feed.Length), Replace);
             }
             else
             {
-                int tmp = Random.Range(0, News.ViolentMessage.Length - 1);
-                Feed = Feed.Insert((Feed.Length), News.ViolentMessage[tmp]);
+                int tmpViolent = Random.Range(0, News.ViolentMessage.Length);
+                Feed = Feed.Insert((Feed.Length), News.ViolentMessage[tmpViolent]);
             }
         }
         else
         {
-            int tmp = Random.Range(0, News.NormalMessage.Length - 1);
-            Feed = Feed.Insert((Feed.Length), News.NormalMessage[tmp]);
+            int tmpNormal = Random.Range(0, News.NormalMessage.Length);
+            Feed = Feed.Insert((Feed.Length), News.NormalMessage[tmpNormal]);
         }
         NewsFeedFirst.text = Feed;
 
     }
+
     void Update()
     {
     }

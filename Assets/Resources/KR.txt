@@ -14,5 +14,13 @@
 	"Achievement":
 	{	
 		"ChickenEVERYWHERE":"하늘에서 치킨이 빗발친다."		
+	},
+	"Encounter":
+	{
+		"Stage" : "무대를 설치하시겠습니까?"
+	},
+	"EncounterDescription":
+	{
+		"StageDescription" : "평화 시위에서의 단결력을 높혀줍니다."
 	}
 }
