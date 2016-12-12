@@ -14,19 +14,13 @@ public class AchievementPop : MonoBehaviour {
         POP.enabled = false;
         State.enabled = false;
     }
-    // Use this for initialization
-    void Start() {
-
-
-    }
-
     // Update is called once per frame
     void Update() {
-
-        if (Achievement.ChickenEVERYWHERE == false && Chicken.CurrentStat >= 10)
+        
+        if (Achievement.ChickenEVERYWHERE == false && Chicken.CurrentStat >= 1)
         {
             Open(JsonLoad.File.Achievement.ChickenEVERYWHERE);
-            Achievement.ChickenEVERYWHERE = true;
+            Achievement.ChickenEVERYWHERE = true; // 외부 파일로 저장하게 할것
         }
     }
     void Open(string Message)

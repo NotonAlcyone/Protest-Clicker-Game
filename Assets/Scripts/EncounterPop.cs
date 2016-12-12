@@ -15,6 +15,7 @@ public class EncounterPop : MonoBehaviour
     public Text NOtext;
     public Text EncounterText;
     public Text Description;
+
     void popup()
     {
         EncounterText.enabled = true;
@@ -24,8 +25,6 @@ public class EncounterPop : MonoBehaviour
         NO.enabled = true;
         NOtext.enabled = true;
         Description.enabled = true;
-
-
     }
     void close()
     {
@@ -37,6 +36,7 @@ public class EncounterPop : MonoBehaviour
         NOtext.enabled = false;
         Description.enabled = false;
     }
+
     void Awake()
     {
         close();

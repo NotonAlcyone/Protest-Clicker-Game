@@ -15,8 +15,8 @@ public class ChickenSystem : MonoBehaviour
 
     public int Stack;
     public int IncreaseStack;
-    public int MaxChickenStack;
-    public int MinChickenStack;
+    public int MaxStack;
+    public int MinStack;
 
     public int CurrentStat;
 
@@ -29,7 +29,7 @@ public class ChickenSystem : MonoBehaviour
 
     void ChickenIncrease()
     {
-        if (Stack < MaxChickenStack)
+        if (Stack < MaxStack)
         {
            Stack += (Pop.PopStat) / 10;
         }
@@ -40,6 +40,6 @@ public class ChickenSystem : MonoBehaviour
     {
         StackDisplay.text = JsonLoad.File.UI.ChickenStack + Stack;
         StatDisplay.text = JsonLoad.File.UI.ChickenStat + CurrentStat;
-        Stack = Mathf.Clamp(Stack, MinChickenStack, MaxChickenStack); //치킨"스택"의 최소와 최대치를 정의
+        Stack = Mathf.Clamp(Stack, MinStack, MaxStack); //치킨"스택"의 최소와 최대치를 정의
     }
 }

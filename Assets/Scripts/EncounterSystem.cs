@@ -7,7 +7,6 @@ public class EncounterSystem : MonoBehaviour {
 
     void Start()
     {
-        Stage = false;  //후에 외부 파일에서 로드할것
 
     }
 }

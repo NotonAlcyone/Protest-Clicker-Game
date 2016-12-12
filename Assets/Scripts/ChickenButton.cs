@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ChickenButton : MonoBehaviour
 {
@@ -10,10 +11,15 @@ public class ChickenButton : MonoBehaviour
 
     public void ChickenMineClicked()
     {
-        if (Chicken.Stack > Chicken.MinChickenStack)
+        if (Chicken.Stack > Chicken.MinStack)
         {
             Chicken.CurrentStat += Chicken.Stack;
-            Chicken.Stack = Chicken.MinChickenStack;
+            Chicken.Stack = Chicken.MinStack;
         }
+    }
+    public void Test()
+    {
+        SceneManager.LoadScene("Main");
+
     }
 }

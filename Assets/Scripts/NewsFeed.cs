@@ -6,7 +6,7 @@ public class NewsFeed : MonoBehaviour
    
     public string[] NormalMessage =
     {
-        "오버워치 대회에서 한국팀이 우승을 차지했습니다.",
+        "오버워치z 대회에서 한국팀이 우승을 차지했습니다.",
         "공무원들의 연봉이 인상됩니다.",
         "매미를 애완충으로 삼는 가구가 늘고있습니다." //ひぐらし
     };
