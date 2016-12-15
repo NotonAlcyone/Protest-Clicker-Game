@@ -8,6 +8,7 @@ public class AchievementPop : MonoBehaviour {
     public AchievementSystem Achievement;
     public ChickenSystem Chicken;
     public Image POP;
+    public JSON json;
     public Text State;
     void Awake()
     {
@@ -19,15 +20,16 @@ public class AchievementPop : MonoBehaviour {
         
         if (Achievement.ChickenEVERYWHERE == false && Chicken.CurrentStat >= 1)
         {
-            Open(JsonLoad.File.Achievement.ChickenEVERYWHERE);
+            Open("Achievement", "ChickenEVERYWHERE", Achievement.ChickenEVERYWHERE);
             Achievement.ChickenEVERYWHERE = true; // 외부 파일로 저장하게 할것
         }
     }
-    void Open(string Message)
+    void Open(string Messagekey1, string Messagekey2, bool Stat)
     {
         POP.enabled = true;
         State.enabled = true;
-        State.text = Message;
+        State.text = (string) json.dict[Messagekey1][Messagekey2];
+        PlayerPrefs.SetInt(Messagekey1 + "_" + Messagekey2, Changer(Stat));
         Invoke("Close", 5.0f);
     }
     void Close()
@@ -35,4 +37,23 @@ public class AchievementPop : MonoBehaviour {
         POP.enabled = false;
         State.enabled = false;
     }
+
+
+    int Changer(bool Change) //bool 타입을 int로 교체
+    {
+        if (Change == true)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    void IntSave(string Name, int Number)
+    {
+        PlayerPrefs.SetInt("Achievement_ChickenEVERYWHERE",Changer(Achievement.ChickenEVERYWHERE));
+    }
+
+
 }

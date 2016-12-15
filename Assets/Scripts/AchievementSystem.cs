@@ -5,7 +5,4 @@ public class AchievementSystem : MonoBehaviour {
 
 
     public bool ChickenEVERYWHERE;
-
-    
-
 }

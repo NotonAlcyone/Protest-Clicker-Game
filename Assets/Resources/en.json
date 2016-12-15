@@ -1,0 +1,35 @@
+{
+    "UI": 
+    {
+        "ChickenStat": "주운 치킨: ",
+        "ChickenStack" : "치킨: ",
+        "PopStat": "인지도: ",
+        "Upgrade": "레벨:"
+    },
+    "Achievement":
+    {   
+        "ChickenEVERYWHERE":"하늘에서 치킨이 빗발친다."
+    },
+    "Encounter":
+    {
+        "Stage" : "무대를 설치하시겠습니까?",
+        "Reki"  : "Reki With SVD"
+    },
+    "Description":
+    {
+        "Stage" : "평화 시위에서의 단결력을 높혀줍니다.",
+        "Reki"  :   "레키 기여어"
+    
+    },
+    "NewsFeed":
+    {
+        "NormalMessage" :
+        [
+            "DoyouKnowKimchi"
+        ],
+        "VioletnMessage" :
+        [
+            "iHATEKIMCHI"
+        ]
+    },
+}

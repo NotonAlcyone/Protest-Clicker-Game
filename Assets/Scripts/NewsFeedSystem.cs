@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NewsFeedSystem : MonoBehaviour
 {
-    public NewsFeed News;
+    public JSON json;
     public float speed ;
     
     public bool PeaceStat = true;
@@ -19,10 +19,10 @@ public class NewsFeedSystem : MonoBehaviour
     {
         speed = 2;
         NewsFeedFirst.fontSize = 30;
-        InvokeRepeating("FeedMaker", 0.0f, 4.0f);
+        InvokeRepeating("FeedCondition", 0.0f, 4.0f);
         
     }
-    void FeedMaker()
+    void FeedCondition()
     {
         Feed = Feed.Insert(Feed.Length, HAKU);
               
@@ -30,53 +30,35 @@ public class NewsFeedSystem : MonoBehaviour
         {
             if (PeaceStat == true)
             {
-                int tmpPeace = Random.Range(0, News.PeaceMessage.Length );      
-                Feed = Feed.Insert((Feed.Length), Replace(News.PeaceMessage[tmpPeace]));
+                Maker("NewsFeed", "PeaceMessage");
             }
             else
             {
-                int tmpViolent = Random.Range(0, News.ViolentMessage.Length);
-                Feed = Feed.Insert((Feed.Length), Replace(News.ViolentMessage[tmpViolent]));
+                Maker("NewsFeed", "ViolentMessage");
             }
         }
         else
         {
-            int tmpNormal = Random.Range(0, News.NormalMessage.Length);
-            Feed = Feed.Insert((Feed.Length), Replace(News.NormalMessage[tmpNormal]));
+            Maker("NewsFeed", "NormalMessage");
         }
         NewsFeedFirst.text = Feed;
     }
-    string Replace(string ReplaceText)
+    void Maker(string FirstKey,string SecondKey)
+    {
+        int tmp = Random.Range(0, json.dict[FirstKey][SecondKey].Count);
+        Feed = Feed.Insert((Feed.Length), Replace((string)json.dict[FirstKey][SecondKey][tmp]));
+
+ 
+    }
+    string Replace(string ReplaceText) //받은 문자열에서 교체가 필요한 문자열 교체
     {
         ReplaceText = ReplaceText.Replace("$Mention", Mention);
         ReplaceText = ReplaceText.Replace("$Party", Party);
         return ReplaceText;
-    }
-
-
-    void FeedBroker()
-    {
-        float tmp = NewsFeedFirst.rectTransform.sizeDelta.x;
-        Feed = Feed.Remove(0, 16);
-        tmp -= NewsFeedFirst.rectTransform.sizeDelta.x;
-        transform.Translate(tmp, 0, 0);
     }
     void Update()
     {
         tmp = NewsFeedFirst.rectTransform.sizeDelta.x;
         transform.Translate(-speed, 0, 0);
     }
-    /*
-    public UnityEngine.UI.Text NewsFeedDisplay;
-    public string PartyName = "TestParty";
-    void NewsFeedControl()
-    {
-        NewsFeedSystem.NormalNewsFeed[0] = NewsFeedSystem.NormalNewsFeed[0].Replace("$PartyName", PartyName);
-        NewsFeedDisplay.text = NewsFeedSystem.NormalNewsFeed[0];
-    }
-    */
-
-    //TextGenerationSettings settings = NewsFeedFirst.GetGenerationSettings(NewsFeedFirst.rectTransform.rect.size);
-    //  float width = NewsFeedFirst.cachedTextGeneratorForLayout.GetPreferredWidth(NewsFeedFirst.text, settings);
-    //   
 }

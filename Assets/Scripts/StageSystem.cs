@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using LitJson;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class StageSystem : MonoBehaviour
@@ -10,62 +12,65 @@ public class StageSystem : MonoBehaviour
     public AchievementSystem Achievement;
     public EncounterSystem Encounter;
     public Main Main;
-    // Use this for initialization
+    public UpgradeSystem Upgrade;
+    JsonData Save;
 
+    // Use this for initialization
     void Start()
     {
-        Invoke("Restart", 20.0f); //라운드 시간
+        Invoke("Restart", 20.0f); //라운드 시간        
     }
     void Restart()
     {
-        ChickenSave();
-        PopSave();
-        AchievementSave();//도전과제는 후에 외부로 저장(세이브 단위 저장이 아니라 전체로 저장되야함)
-        EncounterSave();
-
-        PlayerPrefs.SetInt("Day",Main.Day);
-
-        Debug.Log(Chicken.CurrentStat);
-      
+        stat SaveFile = new stat(Chicken.CurrentStat, Chicken.MaxStack, Chicken.IncreaseStack, Pop.PopStat, Pop.PopStatIncrease, Upgrade.LevelOne, Upgrade.LevelTwo, Upgrade.LevelThree, Upgrade.LevelFour, Upgrade.LevelFive, Upgrade.LevelSix, Main.Day);
+        Save = JsonMapper.ToJson(SaveFile);
+        Debug.Log(Save);
+        File.WriteAllText(Application.dataPath + "/Save.json", (string)Save);
         SceneManager.LoadScene("GameScene");//게임 씬 재시작
     }
-    int Changer(bool Change) //bool 타입을 int로 교체
-    {
-        if (Change == true)
-        {
-            return 1;
-        }
-        else
-        { 
-            return 0;
-        } 
-    }
 
-    void ChickenSave()//치킨 저장
-    {
-        IntSave("ChickenStat",Chicken.CurrentStat);
-        IntSave("ChickenStack",Chicken.Stack);
-        IntSave("ChickenMin",Chicken.MinStack);
-        IntSave("ChickenMax",Chicken.MaxStack);
-        IntSave("ChickenIncrease",Chicken.IncreaseStack);
 
-    }
-    void PopSave()//인지도 저장
-    {
-        IntSave("PopStat", Pop.PopStat);
-        IntSave("PopIncrease",Pop.PopStatIncrease);
-    }
-    void AchievementSave()//도전과제 저장
-    {
-        IntSave("Achievement_ChickenEVERYWHERE", Changer(Achievement.ChickenEVERYWHERE));
-    }
-    void EncounterSave()//인카운터 저장
-    {
-        IntSave("Encounter_Stage", Changer(Encounter.Stage));
-    }
 
-    void IntSave(string Name,int Number)
+    
+
+}
+public class stat
+{
+    public int ChickenStat;
+    public int ChickenMax;
+    public int ChickenIncrease;
+
+    public int PopStat;
+    public int PopIncrease;
+
+    public int Upgrade_One;
+    public int Upgrade_Two;
+    public int Upgrade_Three;
+    public int Upgrade_Four;
+    public int Upgrade_Five;
+    public int Upgrade_Six;
+
+    public int Day;
+
+    public bool? Encounter_Stage;
+
+
+
+
+    public stat(int ChickenStat, int ChickenMax, int ChickenIncrease,int PopStat,int PopIncrease, int Upgrade1,int upgrade2,int upgrade3,int upgrade4,int upgrade5,int upgrade6,int day)
     {
-        PlayerPrefs.SetInt(Name, Number);
+        this.ChickenStat = ChickenStat;
+        this.ChickenMax = ChickenMax;
+        this.ChickenIncrease = ChickenIncrease;
+        this.PopStat = PopStat;
+        this.PopIncrease = PopIncrease;
+        this.Upgrade_One = Upgrade1;
+        this.Upgrade_Two = upgrade2;
+        this.Upgrade_Three = upgrade3;
+        this.Upgrade_Four = upgrade4;
+        this.Upgrade_Five = upgrade5;
+        this.Upgrade_Six = upgrade6;
+        this.Day = day;
+
     }
 }

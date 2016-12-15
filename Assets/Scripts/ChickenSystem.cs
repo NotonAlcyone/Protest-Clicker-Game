@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
-
-[System.Serializable]
-
-
 public class ChickenSystem : MonoBehaviour
 {
 
     public PopSystem Pop;
+    public JSON json;
 
     public UnityEngine.UI.Text StackDisplay;
     public UnityEngine.UI.Text StatDisplay;
@@ -38,8 +35,9 @@ public class ChickenSystem : MonoBehaviour
     // 프레임마다 호출
     void Update()
     {
-        StackDisplay.text = JsonLoad.File.UI.ChickenStack + Stack;
-        StatDisplay.text = JsonLoad.File.UI.ChickenStat + CurrentStat;
+        StackDisplay.text = (string)json.dict["UI"]["ChickenStack"] + Stack;
+        StatDisplay.text = (string)json.dict["UI"]["ChickenStat"] + CurrentStat;
         Stack = Mathf.Clamp(Stack, MinStack, MaxStack); //치킨"스택"의 최소와 최대치를 정의
     }
 }
+

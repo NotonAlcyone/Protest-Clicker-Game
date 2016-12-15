@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class MoveForMain : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class MoveForMain : MonoBehaviour {
     public void Achievement()
     {
         Debug.Log("Achievement");
+        
     }
     public void Credit()
     {
@@ -29,7 +31,7 @@ public class MoveForMain : MonoBehaviour {
     }
     public void Click()
     {
-         Debug.Log("Noton");
+        File.Delete(Application.dataPath + "/Save.json");
     }
     public void Quit()
     {

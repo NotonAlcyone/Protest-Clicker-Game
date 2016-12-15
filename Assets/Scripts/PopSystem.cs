@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PopSystem : MonoBehaviour
 {
-
+    public JSON json;
     public UnityEngine.UI.Text PopStatDisplay;
     public int PopStat;
     public int PopStatIncrease;
@@ -23,6 +23,6 @@ public class PopSystem : MonoBehaviour
     void Update()
     {
 
-        PopStatDisplay.text = JsonLoad.File.UI.PopStat + PopStat;
+        PopStatDisplay.text = (string) json.dict["UI"]["PopStat"] + PopStat;
     }
 }
