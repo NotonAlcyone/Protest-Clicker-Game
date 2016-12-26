@@ -34,7 +34,7 @@ public class StageSystem : MonoBehaviour
     
 
 }
-public class stat
+public class stat //저-장
 {
     public int ChickenStat;
     public int ChickenMax;

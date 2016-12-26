@@ -40,7 +40,7 @@ public class Main : MonoBehaviour
             Day = GetSave("Day");
             Debug.Log(SaveData["Encounter_Stage"]);
 
-        }//세이브파일이 없으면 아래와 같이
+        }//세이브파일이 없으면 아래의 초기값 입력
         else
         {
             Chicken.CurrentStat = 0;
@@ -59,7 +59,7 @@ public class Main : MonoBehaviour
 
             Debug.Log("NoData!");
         }
-        AchievementLoad();
+        AchievementLoad(); //도전과제는 PlayerPrefs 로 로컬 저장
 
         Day++; // 스테이지 로드후 스테이지에 +1 추가
     }
@@ -67,10 +67,8 @@ public class Main : MonoBehaviour
     {
         return (int)SaveData[Key];
     }
-    
     void AchievementLoad()
     {
-
         Achievement.ChickenEVERYWHERE = Changer(PlayerPrefs.GetInt("Achievement_ChickenEVERYWHERE",0));
     }
     bool Changer(int Change) //bool 타입을 int로 교체

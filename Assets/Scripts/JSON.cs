@@ -5,7 +5,7 @@ using LitJson;
 [System.Serializable]
 public class JsonLoad
 {
-    public static TextAsset Feed = Resources.Load<TextAsset>("KR");
+    public static TextAsset Feed = Resources.Load<TextAsset>("KR"); // Resources 폴더에서 KR 텍스트 파일로드
     public static string Script = Feed.text;
 }
 [System.Serializable]
@@ -15,7 +15,7 @@ public class JSON : MonoBehaviour
 
     void Awake()
     {
-        dict = JsonMapper.ToObject(JsonLoad.Script);
+        dict = JsonMapper.ToObject(JsonLoad.Script); //라이브러리화
     }
 
     void Start()

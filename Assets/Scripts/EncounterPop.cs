@@ -29,7 +29,7 @@ public class EncounterPop : MonoBehaviour
         NO.enabled = true;
         NOtext.enabled = true;
         Description.enabled = true;
-    }
+    } //이하 오브젝트 표시
     void close()
     {
         EncounterText.enabled = false;
@@ -39,7 +39,7 @@ public class EncounterPop : MonoBehaviour
         NO.enabled = false;
         NOtext.enabled = false;
         Description.enabled = false;
-    }
+    } //이하 오브젝트 비표시
 
     void Awake()
     {
@@ -71,9 +71,9 @@ public class EncounterPop : MonoBehaviour
     }
     void Update()
     {
-        if (Encounter.Stage == false && Chicken.CurrentStat > 1)
+        if (Encounter.Stage == false && Chicken.CurrentStat > 1) 
         {
-            open("Encounter","Stage","Description", "Stage");
+            open("Encounter","Stage","Description", "Stage"); 
 
             Encounter.Stage = true;
         }

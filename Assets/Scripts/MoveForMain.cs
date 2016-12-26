@@ -23,7 +23,6 @@ public class MoveForMain : MonoBehaviour {
     public void Achievement()
     {
         Debug.Log("Achievement");
-        
     }
     public void Credit()
     {
@@ -31,7 +30,7 @@ public class MoveForMain : MonoBehaviour {
     }
     public void Click()
     {
-        File.Delete(Application.dataPath + "/Save.json");
+        File.Delete(Application.dataPath + "/Save.json"); //Save.json 저장파일 삭제 
     }
     public void Quit()
     {

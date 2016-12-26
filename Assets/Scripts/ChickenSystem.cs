@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEngine.UI;
 public class ChickenSystem : MonoBehaviour
 {
 
     public PopSystem Pop;
     public JSON json;
 
-    public UnityEngine.UI.Text StackDisplay;
-    public UnityEngine.UI.Text StatDisplay;
+    public Text StackDisplay;
+    public Text StatDisplay;
 
-    public int Stack;
-    public int IncreaseStack;
-    public int MaxStack;
-    public int MinStack;
+    public int Stack;   //치킨 예비 수치
+    public int IncreaseStack;   // 치킨 증가율
+    public int MaxStack;    //치킨 예비 수치 최대치
+    public int MinStack;    //치킨 예비 수치 최소치 == 0
 
-    public int CurrentStat;
+    public int CurrentStat; //치킨 수치
 
 
     // 시작시 호출
