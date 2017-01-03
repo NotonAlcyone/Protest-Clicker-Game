@@ -9,25 +9,25 @@ public class UpgradeSystem : MonoBehaviour
     public ChickenSystem Chicken;
     public NewsFeedSystem News;
 
-    public Text LevelDisplayOne;
-    public Text LevelDisplayTwo;
-    public Text LevelDisplayThree;
-    public Text LevelDisplayFour;
-    public Text LevelDisplayFive;
-    public Text LevelDisplaySix;
+    public Text levelDisplayOne;
+    public Text levelDisplayTwo;
+    public Text levelDisplayThree;
+    public Text levelDisplayFour;
+    public Text levelDisplayFive;
+    public Text levelDisplaySix;
 
-    public int LevelOne;
-    public int PriceOne;
-    public int LevelTwo;
-    public int PriceTwo;
-    public int LevelThree;
-    public int PriceThree;
-    public int LevelFour;
-    public int PriceFour;
-    public int LevelFive;
-    public int PriceFive;
-    public int LevelSix;
-    public int PriceSix;
+    public int levelOne;
+    public int priceOne;
+    public int levelTwo;
+    public int priceTwo;
+    public int levelThree;
+    public int priceThree;
+    public int levelFour;
+    public int priceFour;
+    public int levelFive;
+    public int priceFive;
+    public int levelSix;
+    public int priceSix;
 
    
     void Start()
@@ -35,70 +35,70 @@ public class UpgradeSystem : MonoBehaviour
     }
     void Update()
     {
-        LevelDisplayOne.text = (string)json.dict["UI"]["Upgrade"] + LevelOne;
-        LevelDisplayTwo.text = (string)json.dict["UI"]["Upgrade"] + LevelTwo;
-        LevelDisplayThree.text = (string)json.dict["UI"]["Upgrade"] + LevelThree;
-        LevelDisplayFour.text = (string)json.dict["UI"]["Upgrade"] + LevelFour;
-        LevelDisplayFive.text = (string)json.dict["UI"]["Upgrade"] + LevelFive;
-        LevelDisplaySix.text = (string)json.dict["UI"]["Upgrade"] + LevelSix;
+        levelDisplayOne.text = (string)json.dict["UI"]["Upgrade"] + levelOne;
+        levelDisplayTwo.text = (string)json.dict["UI"]["Upgrade"] + levelTwo;
+        levelDisplayThree.text = (string)json.dict["UI"]["Upgrade"] + levelThree;
+        levelDisplayFour.text = (string)json.dict["UI"]["Upgrade"] + levelFour;
+        levelDisplayFive.text = (string)json.dict["UI"]["Upgrade"] + levelFive;
+        levelDisplaySix.text = (string)json.dict["UI"]["Upgrade"] + levelSix;
     }
 
     public void UpgradeClickOne()
     {
-        if (Chicken.CurrentStat >= PriceOne)
+        if (Chicken.currentStat >= priceOne)
         {
-            Chicken.CurrentStat -= PriceOne;
-            LevelOne++;
+            Chicken.currentStat -= priceOne;
+            levelOne++;
             
         }
 
     }
     public void UpgradeClickTwo()
     {
-        if (Chicken.CurrentStat >= PriceTwo)
+        if (Chicken.currentStat >= priceTwo)
         {
-            Chicken.CurrentStat -= PriceTwo;
-            LevelTwo++;
+            Chicken.currentStat -= priceTwo;
+            levelTwo++;
             
         }
 
     }
     public void UpgradeClickThree()
     {
-        if (Chicken.CurrentStat >= PriceThree)
+        if (Chicken.currentStat >= priceThree)
         {
-            Chicken.CurrentStat -= PriceThree;
-            LevelThree++;
+            Chicken.currentStat -= priceThree;
+            levelThree++;
             
         }
 
     }
     public void UpgradeClickFour()
     {
-        if (Chicken.CurrentStat >= PriceFour)
+        if (Chicken.currentStat >= priceFour)
         {
-            Chicken.CurrentStat -= PriceFour;
-            LevelFour++;
+            Chicken.currentStat -= priceFour;
+            levelFour++;
             
         }
 
     }
     public void UpgradeClickFive()
     {
-        if (Chicken.CurrentStat >= PriceFive)
+        if (Chicken.currentStat >= priceFive)
         {
-            Chicken.CurrentStat -= PriceFive;
-            LevelFive++;
+            Chicken.currentStat -= priceFive;
+            levelFive++;
             
         }
 
     }
     public void UpgradeClickSix()
     {
-        if (Chicken.CurrentStat >= PriceSix)
+        if (Chicken.currentStat >= priceSix)
         {
-            Chicken.CurrentStat -= PriceSix;
-            LevelSix++;
+            Chicken.currentStat -= priceSix;
+            levelSix++;
             
         }
 

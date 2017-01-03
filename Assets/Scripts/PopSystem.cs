@@ -3,10 +3,10 @@ using System.Collections;
 
 public class PopSystem : MonoBehaviour
 {
-    public JSON json;
-    public UnityEngine.UI.Text PopStatDisplay;
-    public int PopStat;
-    public int PopStatIncrease;
+    public JSON Json;
+    public UnityEngine.UI.Text popStatDisplay;
+    public int Stat;
+    public int StatIncrease;
 
     void Start()
     {
@@ -14,10 +14,10 @@ public class PopSystem : MonoBehaviour
     }
     void PopStatUP()
     {
-        PopStat += PopStatIncrease; // 증1가
+        Stat += StatIncrease; // 증1가
     }
     void Update()
     {
-        PopStatDisplay.text = (string) json.dict["UI"]["PopStat"] + PopStat;
+        popStatDisplay.text = (string) Json.dict["UI"]["PopStat"] + Stat;
     }
 }

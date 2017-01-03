@@ -71,11 +71,11 @@ public class EncounterPop : MonoBehaviour
     }
     void Update()
     {
-        if (Encounter.Stage == false && Chicken.CurrentStat > 1) 
+        if (Encounter.stage == false && Chicken.currentStat > 1) 
         {
             open("Encounter","Stage","Description", "Stage"); 
 
-            Encounter.Stage = true;
+            Encounter.stage = true;
         }
     }
     void open(string Messagekey, string Messagekey2,string ssulkey,string ssulkey2)

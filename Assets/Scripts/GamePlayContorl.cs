@@ -10,6 +10,6 @@ public class GamePlayContorl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	//Daycontrol, crowdControl,ProtestControl, AntiProtest,Police
 	}
 }

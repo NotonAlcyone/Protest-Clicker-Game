@@ -16,19 +16,20 @@ public class AchievementPop : MonoBehaviour {
         State.enabled = false;
     }
     // Update is called once per frame
-    void Update() {
-        
-        if (Achievement.ChickenEVERYWHERE == false && Chicken.CurrentStat >= 1)
+    void Update()
+    {
+
+        if (Achievement.chickenEverywhere == false && Chicken.currentStat >= 1)
         {
-            Open("Achievement", "ChickenEVERYWHERE", Achievement.ChickenEVERYWHERE);
-            Achievement.ChickenEVERYWHERE = true; // 외부 파일로 저장하게 할것
+            Open("Achievement", "ChickenEVERYWHERE", Achievement.chickenEverywhere);
+            Achievement.chickenEverywhere = true; // 외부 파일로 저장하게 할것
         }
     }
     void Open(string Messagekey1, string Messagekey2, bool Stat)
     {
         POP.enabled = true;
         State.enabled = true;
-        State.text = (string) json.dict[Messagekey1][Messagekey2];
+        State.text = (string)json.dict[Messagekey1][Messagekey2];
         PlayerPrefs.SetInt(Messagekey1 + "_" + Messagekey2, Changer(Stat));
         Invoke("Close", 5.0f);
     }
@@ -52,7 +53,7 @@ public class AchievementPop : MonoBehaviour {
     }
     void IntSave(string Name, int Number)
     {
-        PlayerPrefs.SetInt("Achievement_ChickenEVERYWHERE",Changer(Achievement.ChickenEVERYWHERE));
+        PlayerPrefs.SetInt("Achievement_ChickenEVERYWHERE",Changer(Achievement.chickenEverywhere));
     }
 
 
