@@ -12,6 +12,10 @@ public class Main : MonoBehaviour
     public int day;
     private string jsonFile;
     public JsonData SaveData;
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
     void Start()
     {
         //세이브파일 유무 검사

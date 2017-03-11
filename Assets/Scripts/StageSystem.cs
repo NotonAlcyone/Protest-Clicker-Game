@@ -17,7 +17,7 @@ public class StageSystem : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Invoke("Restart", 20.0f); //라운드 시간  
+        Invoke("Restart", 140.0f); //라운드 시간  
     }
     void Restart()
     {
